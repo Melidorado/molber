@@ -11,10 +11,30 @@ import Product from './views/Product';
 import Steps from './views/Steps';
 import Nav from './views/Nav';
 
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+
+import { theme } from './styles/theme';
+
+const GlobalStyle = createGlobalStyle`
+  body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0
+  }
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none
+  }
+  body {
+    font-family: "Helvetica"
+  }
+`
 
 const App = () => {
   return (
     <div className="App">
+      <ThemeProvider theme={theme}>
+
       <Router>
         <Nav/>
         <Switch>
@@ -29,6 +49,8 @@ const App = () => {
           <Route path="" component={NotFound}></Route>
         </Switch>
       </Router>
+
+      </ThemeProvider>
      
     </div>
   );
