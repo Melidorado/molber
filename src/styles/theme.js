@@ -5,11 +5,10 @@ export const theme = {
       background: "#FFFFFF",
     },
     sizes: {
-      h1: "30px",
-      h2: "44px",
-      h3: "36px",
-      p: "33px"
-  
+      h1: "68px",
+      h2: "23px",
+      h3: "18px",
+      p: "16px"
     },
   
     breakpoints: {

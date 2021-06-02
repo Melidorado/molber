@@ -1,7 +1,16 @@
+import styled from 'styled-components'
+
+const NavBar = styled.nav`
+    width: 100vw;
+    height: 68px;
+    background-color: red;
+`
+
 const Nav = () => {
     return(
-        <nav>
-        </nav>
+        <NavBar>
+
+        </NavBar>
     )
 }
 

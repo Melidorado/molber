@@ -11,7 +11,7 @@ import Product from './views/Product';
 import Steps from './views/Steps';
 import Nav from './views/Nav';
 
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import { theme } from './styles/theme';
 
@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <div className="App">
+      <GlobalStyle/>
       <ThemeProvider theme={theme}>
 
       <Router>
