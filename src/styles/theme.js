@@ -7,7 +7,7 @@ export const theme = {
     sizes: {
       h1: "68px",
       h2: "23px",
-      h3: "18px",
+      h3: "17px",
       p: "16px"
     },
   

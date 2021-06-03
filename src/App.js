@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import NotFound from './views/NotFound';
 import Home from './views/Home';
@@ -10,6 +10,7 @@ import Search from './views/Search';
 import Product from './views/Product';
 import Steps from './views/Steps';
 import Nav from './views/Nav';
+import SecondaryNav from './views/SecondaryNav';
 
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
@@ -23,7 +24,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   a {
-    text-decoration: none
+    text-decoration: none;
+    color: black;
+  }
+  a:visited{
+    color: black;
   }
   body {
     font-family: "Helvetica"
@@ -38,6 +43,7 @@ const App = () => {
 
       <Router>
         <Nav/>
+        <SecondaryNav/>
         <Switch>
           <Route exact path="/home" component={Home}></Route>
           <Route exact path="/productos" component={Products}></Route>
