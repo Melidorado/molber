@@ -8,6 +8,7 @@ const CurrentSectionContainer = styled.div`
     align-items: flex-end;
     justify-content: center;
     border: 1px solid black;
+    border-left: none;
     padding-bottom:150px;
 
     &:hover{
