@@ -6,6 +6,8 @@ import Search from '../components/Search'
 const NavBar = styled.nav`
     width: 100vw;
     height: 68px;
+    position: relative;
+    z-index: 1;
     background-color: ${props => props.theme.colors.background};
     display: flex;
     justify-content: space-between;

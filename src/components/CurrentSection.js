@@ -1,45 +1,43 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 
-const Item = styled.button `
-    width: calc(100% / 5);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+const CurrentSectionContainer = styled.div`
+    height: 100vh;
+    width: 45px;
     background-color: ${props => props.theme.colors.background};
-    border: 0;
-    border-left: 1px solid black;
-    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 1px solid black;
+    padding-bottom:150px;
 
     &:hover{
         background-color: ${props => props.theme.colors.primary};
     }
 `
-
 const LinkContainer = styled.div`
     display: flex;
     align-items: flex-start;
+    transform: rotate(270deg);
 `
 const Number = styled.p`
     font-size: 13px;
     font-weight: lighter;
     font-style: italic;
-    margin-right: 3px;
+    margin-right: 6px;
 `
 const ItemName = styled.p`
     font-size: ${props => props.theme.sizes.h3};
 `
 
-const NavItem = ({number, item, route}) => {
-    return (
-        <Item>
+const CurrentSection = ({number, item}) => {
+    return(
+        <CurrentSectionContainer>
             <LinkContainer>
                 <Number>{number}</Number>
-                <ItemName><Link to={route}>{item}</Link></ItemName>
+                <ItemName>{item}</ItemName>
             </LinkContainer>
-        </Item>
+        </CurrentSectionContainer>
     )
 }
 
-export default NavItem;
+export default CurrentSection;

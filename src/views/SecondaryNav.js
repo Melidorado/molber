@@ -5,6 +5,9 @@ import NavItem from '../components/NavItem';
 
 const NavBar = styled.nav`
     height: 44px;
+    width: 100vw;
+    position: relative;
+    z-index: 2;
     border-bottom: 1px solid black;
     background-color: red;
     display: flex;

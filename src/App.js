@@ -44,13 +44,14 @@ const App = () => {
       <Router>
         <Nav/>
         <SecondaryNav/>
+        
         <Switch>
-          <Route exact path="/home" component={Home}></Route>
-          <Route exact path="/productos" component={Products}></Route>
+          <Route path="/home" component={Home}></Route>
+          <Route path="/productos" component={Products}></Route>
           <Route exact path="/productos/:categoria/:producto" component={Product}></Route>
           <Route exact path="/procesos" component={Processes}></Route>
           <Route exact path="/procesos/etapas" component={Steps}></Route>
-          <Route exact path="/nosotros" component={Us}></Route>
+          <Route path="/nosotros" component={Us}></Route>
           <Route exact path="/contacto" component={Contact}></Route>
           <Route exact path="/busqueda" component={Search}></Route>
           <Route path="" component={NotFound}></Route>
