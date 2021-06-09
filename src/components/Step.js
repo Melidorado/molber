@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import { useState } from 'react';
 
-const StepsButton = styled.div`
+const StepsButton = styled.button`
     padding: 0 20px;
     width: 100%;
     height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
+    border:0;
+    border-bottom: 1px solid black !important;
     background-color: ${props => props.theme.colors.background};
     cursor: pointer;
     transition: 0.4s;
@@ -28,9 +30,11 @@ const StepTitle = styled.p`
     font-weight: lighter;
     margin-left: 20px;
 `
-const ShowMoreButton = styled.button`
+const ShowMoreButton = styled.div`
     background-color: transparent;
     border: 0;
+    display: flex;
+    align-items: center;
 `
 const MoreContainer = styled.section`
     width: 100%;
@@ -65,23 +69,22 @@ const Step = ({number, title, description, photo}) => {
 
     const [showMore, setShowMore ] = useState(false)
 
-
     return(
         <>
-        <StepsButton>
+        <StepsButton onClick={() => setShowMore(!showMore)}>
             <StepTitleContainer>
                 <StepTitle>{number}</StepTitle>
                 <StepTitle>{title}</StepTitle>
             </StepTitleContainer>
-            <ShowMoreButton onClick={() => setShowMore(!showMore)}>
-                <AddIcon/>
+            <ShowMoreButton>
+                {!showMore ? <AddIcon/> : <RemoveIcon/>}
             </ShowMoreButton>
         </StepsButton>
         <MoreContainer open={showMore}>
             <DescriptionContainer>
                 <Description>{description}</Description>
             </DescriptionContainer>
-            <PhotoContainer photo="portada"></PhotoContainer>
+            <PhotoContainer photo={photo}></PhotoContainer>
         </MoreContainer>
         </>
     )

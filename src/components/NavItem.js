@@ -17,9 +17,13 @@ const Item = styled.button `
     }
 `
 
+
 const LinkContainer = styled.div`
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
 `
 const Number = styled.p`
     font-size: 13px;
@@ -34,10 +38,12 @@ const ItemName = styled.p`
 const NavItem = ({number, item, route}) => {
     return (
         <Item>
+            <Link to={route}>
             <LinkContainer>
                 <Number>{number}</Number>
-                <ItemName><Link to={route}>{item}</Link></ItemName>
+                <ItemName>{item}</ItemName>
             </LinkContainer>
+            </Link>
         </Item>
     )
 }

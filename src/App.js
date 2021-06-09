@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   a:visited{
     color: black;

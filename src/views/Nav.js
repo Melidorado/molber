@@ -1,7 +1,9 @@
-import styled from 'styled-components'
-import logo from '../utils/images/logo.png'
+import styled from 'styled-components';
+import logo from '../utils/images/logo.png';
 
-import Search from '../components/Search'
+import {Link} from 'react-router-dom';
+
+import Search from '../components/Search';
 
 const NavBar = styled.nav`
     width: 100vw;
@@ -27,9 +29,13 @@ const Logo = styled.img`
 const Nav = () => {
     return(
         <NavBar>
+            
             <LogoContainer>
+            <Link to="/home">
                 <Logo src={logo} alt=""/>
+                </Link>
             </LogoContainer>
+            
             <Search/>
         </NavBar>
     )

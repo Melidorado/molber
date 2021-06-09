@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const CurrentSectionContainer = styled.div`
-    height: 100vh;
     width: 45px;
     background-color: ${props => props.theme.colors.background};
     display: flex;
