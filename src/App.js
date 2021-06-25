@@ -26,10 +26,6 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: black;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   a:visited{
     color: black;
@@ -50,12 +46,12 @@ const App = () => {
         <SecondaryNav/>
         
         <Switch>
-          <Route path="/home" component={Home}></Route>
-          <Route path="/productos" component={Products}></Route>
-          <Route exact path="/productos/:categoria/:producto" component={Product}></Route>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/productos" component={Products}></Route>
+          <Route exact path="/productos/:category/:product" component={Product}></Route>
           <Route exact path="/procesos" component={Processes}></Route>
           <Route exact path="/procesos/etapas" component={Steps}></Route>
-          <Route path="/nosotros" component={Us}></Route>
+          <Route exact path="/nosotros" component={Us}></Route>
           <Route exact path="/contacto" component={Contact}></Route>
           <Route exact path="/busqueda" component={Search}></Route>
           <Route path="" component={NotFound}></Route>

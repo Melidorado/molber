@@ -18,7 +18,7 @@ const SecondaryNav = () => {
         {
             name: "HOME",
             number: "01",
-            route: "/home"
+            route: "/"
         },
         {
             name: "PRODUCTOS",

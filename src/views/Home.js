@@ -23,7 +23,6 @@ const Home = () => {
         <Main>
             <Brands src={Brands_Image}/>
             <Form></Form>
-            
         </Main>
     )
 }

@@ -7,6 +7,8 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
+
+
 const Container = styled.section`
     width: 100vw;
     height: 100vh;
@@ -30,6 +32,10 @@ const SocialMediaContainer = styled.div`
     justify-content: flex-end;
     padding: 30px;
 `
+const SocialLink = styled.a`
+
+`
+
 const FormInfoContainer = styled.div`
     display: flex;
     width: 100%;
@@ -61,7 +67,7 @@ const IconContainer = styled.div`
     width: 19px;
     font-size: 20px;
 `
-const Info = styled.p`
+const Info = styled.a`
     font-size: 15px;
     font-weight: lighter;
     font-style: oblique;
@@ -129,8 +135,8 @@ const Contact = () => {
             />
             <ContactContainer>
                 <SocialMediaContainer>
-                    <FacebookIcon/>
-                    <InstagramIcon/>
+                    <SocialLink href="https://www.facebook.com/molberargentina/" target="_blank"><FacebookIcon/></SocialLink>
+                    <SocialLink href="https://www.instagram.com/molber_/" target="_blank"><InstagramIcon/></SocialLink>
                 </SocialMediaContainer>
                 <FormInfoContainer>
                     <FormContainer>
@@ -151,19 +157,21 @@ const Contact = () => {
                     <InfoContainer>
                         <Item>
                             <IconContainer><MailIcon/></IconContainer>
-                            <Info>VENTAS@MOL-BER.COM</Info>
+                            <Info href="mailto:ventas@mol-ber.com" target="_blank">VENTAS@MOL-BER.COM</Info>
                         </Item>
                         <Item>
                             <IconContainer><WhatsAppIcon/></IconContainer>
-                            <Info>2121-7502</Info>
+                            <Info href="https://wa.me/5491124081698?text=Hola!%20Quiero%20consultarles%20por%20un%20producto" target="_blank">152408-1698</Info>
                         </Item>
                         <Item>
                             <IconContainer><LocationOnIcon/></IconContainer>
-                            <Info>ALMIRANTE BROWN 4141</Info>
+                            <Info href="https://www.google.com.ar/maps/place/Molber,+Distribuidora+Mayorista/@-34.8392997,-58.4258095,17z/data=!4m13!1m7!3m6!1s0x95bcd464a4fd296f:0xde202c3e6a5b7f60!2sGral.+Madariaga+1612,+Burzaco,+Provincia+de+Buenos+Aires!3b1!8m2!3d-34.8392997!4d-58.4236208!3m4!1s0x95bcd323f033a0e7:0x465c4b149787cf2a!8m2!3d-34.8392648!4d-58.423621" target="_blank">
+                                GENERAL MADARIAGA 1612</Info>
                         </Item>
                         <Item>
                             <IconContainer><LocationOnIcon/></IconContainer>
-                            <Info>TEMPERLEY, ARGENTINA</Info>
+                            <Info href="https://www.google.com.ar/maps/place/Molber,+Distribuidora+Mayorista/@-34.8392997,-58.4258095,17z/data=!4m13!1m7!3m6!1s0x95bcd464a4fd296f:0xde202c3e6a5b7f60!2sGral.+Madariaga+1612,+Burzaco,+Provincia+de+Buenos+Aires!3b1!8m2!3d-34.8392997!4d-58.4236208!3m4!1s0x95bcd323f033a0e7:0x465c4b149787cf2a!8m2!3d-34.8392648!4d-58.423621" target="_blank">
+                                PARQUE INDUSTRIAL, BURZACO, PROV. DE BS AS, ARGENTINA</Info>
                         </Item>
                     </InfoContainer>
                 </FormInfoContainer>

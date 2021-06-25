@@ -16,8 +16,6 @@ const Item = styled.button `
         background-color: ${props => props.theme.colors.primary};
     }
 `
-
-
 const LinkContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -25,6 +23,13 @@ const LinkContainer = styled.div`
     align-items: flex-start;
     justify-content: center;
 `
+const StyledLink = styled(Link)`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 const Number = styled.p`
     font-size: 13px;
     font-weight: lighter;
@@ -38,12 +43,12 @@ const ItemName = styled.p`
 const NavItem = ({number, item, route}) => {
     return (
         <Item>
-            <Link to={route}>
+            <StyledLink to={route}>
             <LinkContainer>
                 <Number>{number}</Number>
                 <ItemName>{item}</ItemName>
             </LinkContainer>
-            </Link>
+            </StyledLink>
         </Item>
     )
 }

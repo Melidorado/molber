@@ -31,7 +31,7 @@ const Nav = () => {
         <NavBar>
             
             <LogoContainer>
-            <Link to="/home">
+            <Link to="/">
                 <Logo src={logo} alt=""/>
                 </Link>
             </LogoContainer>

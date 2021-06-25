@@ -43,7 +43,8 @@ const GroupsContainer = styled.section`
 const ProductCategorie = ({name, groups}) => {
 
     const [showMore, setShowMore ] = useState(false)
-    
+    const category = name
+
     return(
         <>
         <CategorieButton onClick={() => setShowMore(!showMore)}>
@@ -58,6 +59,7 @@ const ProductCategorie = ({name, groups}) => {
                 <Group
                 group={group}
                 open={showMore}
+                category={category}
                 key={`${i}-${group}`}
                 />
                 )}

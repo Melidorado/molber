@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 const GroupsContainer = styled.button`
     width: 100%;
@@ -11,16 +12,34 @@ const GroupsContainer = styled.button`
     align-items: center;
     justify-content: flex-start;
     padding-left: 55px;
+    &:hover {
+        background-color: ${props => props.theme.colors.primary};
+    }
 `
 const GroupTitle = styled.p`
     font-size: ${props => props.theme.sizes.h3};
     font-weight: bold;
 `
 
-const Group = ({group, open}) => {
+const StyledLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+`
+
+const Group = ({group, open, category}) => {
+
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    } 
+    const categoryModified = removeAccents(category).replaceAll(' ','-').toLowerCase()
+    const groupModified = removeAccents(group).replaceAll(' ','-').toLowerCase()
+
     return (
         <GroupsContainer open={open}>
-            <GroupTitle>{group}</GroupTitle>
+            <StyledLink to={`/productos/${categoryModified}/${groupModified}`}>
+                <GroupTitle>{group}</GroupTitle>
+            </StyledLink>
         </GroupsContainer>
     )
 }
