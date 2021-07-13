@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import styled from 'styled-components';
 import CurrentSection from '../components/CurrentSection';
 
+import Form from '../components/Form';
+
 
 const Container = styled.section`
     width: 100vw;
@@ -101,6 +103,7 @@ const Product = () => {
                 <ImageContainer photo={`${params.category}-${params.product}`}>
                 </ImageContainer>
             </ProductContainer>
+            <Form open={false}></Form>
         </Container>
     )
 }

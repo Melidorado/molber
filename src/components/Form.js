@@ -1,18 +1,26 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
+import{ init, sendForm } from 'emailjs-com';
+init("user_1dlORuW3dyDHG1NnI1cjI");
 
 const FormContainer = styled.form`
     width: 205px;
-    height: 305px;
+    height: ${props => !props.formOpen ?`120px` :`305px`};
     background-color: ${props => props.theme.colors.background};
     border: 1px solid black;
     border-radius: 140px 0px 0px 0px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    position: absolute;
-    bottom: 120px;
+    align-items: ${props => props.formSent ?`center` :`flex-end`};
+    justify-content: ${props => props.formSent && `center` };
+    position: fixed;
+    bottom: 80px;
     right: 50px;
-    padding: 50px 20px 0;
+    padding: 50px 20px 20px;
+    justify-content:${props => !props.formOpen ?`flex-end` :`center`};
+    transition: all 0.3s ease-out;
+    overflow: hidden;
 `
 
 const Title = styled.p `
@@ -21,43 +29,120 @@ const Title = styled.p `
     font-style: italic;
     text-align: right;
     margin-bottom: 15px;
+    transition: 1.2s ease;
 `
 const Description = styled.p`
     font-size: 11px;
     text-align: right;
     margin-bottom: 15px;
     font-weight: 100;
+    transition: 1.2s ease;
 `
 const EmailInput = styled.input`
     padding: 7px 0;
     border: 0;
     border-bottom: 1px solid;
     margin-bottom: 15px;
+    transition: 1.2s ease;
 `
 const Message = styled.textarea`
     padding: 10px;
     border-radius: 50px 50px 0px 50px;
     border: 1px solid black;
     margin-bottom: 12px;
+    transition: 1.2s ease;
 `
 const SendButton = styled.input`
     border: 0;
     background-color: transparent;
     font-weight: 100;
-
+    transition: 1.2s ease;
+`
+const MessageSent = styled.p`
+    font-size: 14px;
+    text-align: center;
+    margin-left: 10px;
 `
 
-const Form = () => {
+const Form = ({open}) => {
+
+    const [ emailValue, setEmailValue ] = useState('')
+    const [ messageValue, setMessageValue ] = useState('')
+    const [ formSent, setFormSent ] = useState(false)
+    const [ formOpen, setFormOpen ] = useState(open)
+    const [contactNumber, setContactNumber] = useState("000000");
+
+    const generateContactNumber = () => {
+        const numStr = "000000" + (Math.random() * 1000000 | 0);
+        setContactNumber(numStr.substring(numStr.length - 6));
+    }
+
+    const handleClick = () => {
+        setFormOpen(!formOpen)
+    } 
+
+    const handleChangeMail = e => {
+        e.preventDefault()
+        setEmailValue(e.target.value)
+    }
+
+    const handleChangeMessage = e => {
+        e.preventDefault()
+        setMessageValue(e.target.value)
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        setFormSent(!formSent)
+        setEmailValue('')
+        setMessageValue('')
+
+        generateContactNumber();
+        sendForm('default_service', 'template_23orro2', '#contact-form')
+            .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+            console.log('FAILED...', error);
+            });
+    }
+
+    useEffect(() => {
+        formSent && setTimeout(() => {
+            setFormSent(!formSent)
+            setFormOpen(!formOpen)
+        }, 5000)
+    }, [formSent, formOpen]);
+
+
+
     return(
-        <FormContainer>
-            <Title>* PEDI TU PRESUPUESTO</Title>
-            <Description>Dejanos tus datos y te enviamos tu presupuesto personalizado</Description>
-            <EmailInput 
-            type="email"
-            required
-            placeholder="E-MAIL"/>
-            <Message name="mensaje" cols="15" rows="2"></Message>
-            <SendButton type="submit" value="/ ENVIAR"/>
+        <FormContainer id='contact-form' onSubmit={handleSubmit} formOpen={formOpen} formSent={formSent}>
+            {
+            formSent 
+            ?<MessageSent>Tu mensaje ha sido enviado, muchas gracias por tu consulta!</MessageSent>
+            : !formOpen 
+                ?<Title onClick={handleClick}>* PEDI TU PRESUPUESTO</Title>
+                :<>
+                <Title onClick={handleClick}>* PEDI TU PRESUPUESTO</Title>
+                <Description>Dejanos tus datos y te enviamos tu presupuesto personalizado</Description>
+                <EmailInput 
+                onChange={handleChangeMail}
+                type="email"
+                required
+                placeholder="E-MAIL"
+                name="user_email"
+                value={emailValue}
+                />
+                <Message
+                onChange={handleChangeMessage}
+                cols="15" 
+                rows="2" 
+                name="user_message"
+                value={messageValue}
+                required/>
+                <input type='hidden' name='contact_number' value={contactNumber} />
+                <SendButton type="submit" value="/ ENVIAR"/></>
+            }
         </FormContainer>
     )
 }

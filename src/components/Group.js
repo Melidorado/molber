@@ -25,6 +25,7 @@ const StyledLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
 `
 
 const Group = ({group, open, category}) => {

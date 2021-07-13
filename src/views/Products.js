@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import CurrentSection from '../components/CurrentSection';
 import ProductCategorie from '../components/ProductCategorie';
+import Form from '../components/Form'
 
 const Container = styled.section`
     width: 100vw;
@@ -54,6 +55,7 @@ const Products = () => {
                     />
                     )}
             </ProductsContainer>
+            <Form open={false}></Form>
         </Container>
     )
 }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import CurrentSection from '../components/CurrentSection';
 import Step from '../components/Step';
+import Form from '../components/Form';
 
 const Container = styled.section`
     width: 100vw;
@@ -81,6 +82,7 @@ const Steps = () => {
                     key={`${step.number}-${step.title}`}
                     />)}
             </StepsContainer>
+            <Form open={false}></Form>
         </Container>
     )
 }

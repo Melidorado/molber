@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import CurrentSection from '../components/CurrentSection';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Form from '../components/Form';
 
 import {Link} from 'react-router-dom';
 
@@ -107,6 +108,7 @@ const Processes = () => {
                 </Link>
 
             </ProcessesContainer>
+            <Form open={false}></Form>
         </Container>
     )
 }

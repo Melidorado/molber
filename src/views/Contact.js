@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CurrentSection from '../components/CurrentSection';
 
@@ -6,6 +7,10 @@ import MailIcon from '@material-ui/icons/Mail';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import PhoneIcon from '@material-ui/icons/Phone';
+
+import{ init, sendForm } from 'emailjs-com';
+init("user_1dlORuW3dyDHG1NnI1cjI");
 
 
 
@@ -124,8 +129,58 @@ const Payments = styled.p`
     font-size: 15px;
     font-weight: lighter;
 `
+const MessageSent = styled.p`
+    font-size: 14px;
+    text-align: center;
+    margin-left: 10px;
+    position: absolute;
+    bottom: 170px;
+    font-weight: 100;
+    color: green;
+`
 
 const Contact = () => {
+
+    const [ emailValue, setEmailValue ] = useState('')
+    const [ messageValue, setMessageValue ] = useState('')
+    const [ formSent, setFormSent ] = useState(false)
+    const [contactNumber, setContactNumber] = useState("000000");
+
+    const generateContactNumber = () => {
+        const numStr = "000000" + (Math.random() * 1000000 | 0);
+        setContactNumber(numStr.substring(numStr.length - 6));
+    }
+
+    const handleChangeMail = e => {
+        e.preventDefault()
+        setEmailValue(e.target.value)
+    }
+
+    const handleChangeMessage = e => {
+        e.preventDefault()
+        setMessageValue(e.target.value)
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        setFormSent(!formSent)
+        setEmailValue('')
+        setMessageValue('')
+
+        generateContactNumber();
+        sendForm('default_service', 'template_23orro2', '#contact-form')
+            .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+            console.log('FAILED...', error);
+            });
+    }
+
+    useEffect(() => {
+        formSent && setTimeout(() => {
+            setFormSent(!formSent)
+        }, 5000)
+    }, [formSent]);
 
     return(
         <Container>
@@ -140,17 +195,28 @@ const Contact = () => {
                 </SocialMediaContainer>
                 <FormInfoContainer>
                     <FormContainer>
-                        <Form>
+                        <Form id='contact-form' onSubmit={handleSubmit} formSent={formSent}>
                             <Title>* PEDI TU PRESUPUESTO</Title>
                             <Description>Dejanos tus datos y te enviamos tu presupuesto personalizado</Description>
                             <EmailInput 
+                            onChange={handleChangeMail}
                             type="email"
                             required
-                            placeholder="E-MAIL"/>
-                            <Message name="mensaje" cols="15" rows="2"></Message>
+                            placeholder="E-MAIL"
+                            name="user_email"
+                            value={emailValue}/>
+                            <Message 
+                            onChange={handleChangeMessage}
+                            cols="15" 
+                            rows="2" 
+                            name="user_message"
+                            value={messageValue}
+                            required></Message>
+                            <input type='hidden' name='contact_number' value={contactNumber} />
                             <SendButtonContainer>
                                 <SendButton type="submit" value="/ ENVIAR"/>
                             </SendButtonContainer>
+                            {formSent && <MessageSent>Tu mensaje ha sido enviado, muchas gracias por tu consulta!</MessageSent>}
                             <Payments>* Mercado Pago, Tarjeta de crédito</Payments>
                         </Form>
                     </FormContainer>
@@ -164,14 +230,13 @@ const Contact = () => {
                             <Info href="https://wa.me/5491124081698?text=Hola!%20Quiero%20consultarles%20por%20un%20producto" target="_blank">152408-1698</Info>
                         </Item>
                         <Item>
-                            <IconContainer><LocationOnIcon/></IconContainer>
-                            <Info href="https://www.google.com.ar/maps/place/Molber,+Distribuidora+Mayorista/@-34.8392997,-58.4258095,17z/data=!4m13!1m7!3m6!1s0x95bcd464a4fd296f:0xde202c3e6a5b7f60!2sGral.+Madariaga+1612,+Burzaco,+Provincia+de+Buenos+Aires!3b1!8m2!3d-34.8392997!4d-58.4236208!3m4!1s0x95bcd323f033a0e7:0x465c4b149787cf2a!8m2!3d-34.8392648!4d-58.423621" target="_blank">
-                                GENERAL MADARIAGA 1612</Info>
+                            <IconContainer><PhoneIcon/></IconContainer>
+                            <Info href="tel:21217502">2121-7502</Info>
                         </Item>
                         <Item>
                             <IconContainer><LocationOnIcon/></IconContainer>
                             <Info href="https://www.google.com.ar/maps/place/Molber,+Distribuidora+Mayorista/@-34.8392997,-58.4258095,17z/data=!4m13!1m7!3m6!1s0x95bcd464a4fd296f:0xde202c3e6a5b7f60!2sGral.+Madariaga+1612,+Burzaco,+Provincia+de+Buenos+Aires!3b1!8m2!3d-34.8392997!4d-58.4236208!3m4!1s0x95bcd323f033a0e7:0x465c4b149787cf2a!8m2!3d-34.8392648!4d-58.423621" target="_blank">
-                                PARQUE INDUSTRIAL, BURZACO, PROV. DE BS AS, ARGENTINA</Info>
+                            GENERAL MADARIAGA 1612, PARQUE INDUSTRIAL, BURZACO, PROV. DE BS AS, ARGENTINA</Info>
                         </Item>
                     </InfoContainer>
                 </FormInfoContainer>

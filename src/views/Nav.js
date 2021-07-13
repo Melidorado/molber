@@ -3,7 +3,7 @@ import logo from '../utils/images/logo.png';
 
 import {Link} from 'react-router-dom';
 
-import Search from '../components/Search';
+/* import Search from '../components/Search'; */
 
 const NavBar = styled.nav`
     width: 100vw;
@@ -36,7 +36,7 @@ const Nav = () => {
                 </Link>
             </LogoContainer>
             
-            <Search/>
+            {/* <Search/> */}
         </NavBar>
     )
 }

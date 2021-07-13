@@ -22,7 +22,7 @@ const Home = () => {
     return(
         <Main>
             <Brands src={Brands_Image}/>
-            <Form></Form>
+            <Form open={true}></Form>
         </Main>
     )
 }
