@@ -63,7 +63,7 @@ const TitleContainer = styled.div`
     flex-direction: column;
     width: 35%;
     @media (max-width: 767.98px){
-        width: 80%;
+        width: 50%;
         margin-bottom: 30px;
     }
     @media (max-width: 350px){
@@ -167,8 +167,7 @@ const Processes = () => {
                     </TitleContainer>
                     <DescriptionTextContainer>
                         <DescriptionText>
-                        Partiendo ya con al anteproyecto consensuado con el cliente. Se continua con la etapa de proyecto, que consta de: generar toda la documentación técnica gráfica necesaria para llevar a cabo la ejecución de la obra y las correspondientes presentaciones ante los organismos reguladores de la actividad de la construcción.
-                        Una vez obtenido el permiso municipal de obra ya podemos entrar en el terreno de lo constructivo.
+                        Iniciando con el desarrollo del anteproyecto y aprobado por el cliente, se continua con la etapa de proyecto, que consta de: generar toda la documentación técnica gráfica necesaria para llevar a cabo la ejecución de obra y las correspondientes presentaciones ante los organismos reguladores de la actividad de la construcción. Una vez obtenido el permiso municipal de obra ya podemos entrar en el terreno de lo constructivo.
                         </DescriptionText>
                     </DescriptionTextContainer>
                 </DescriptionContainer>
