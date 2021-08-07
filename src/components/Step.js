@@ -20,6 +20,9 @@ const StepsButton = styled.button`
         background-color: ${props => props.theme.colors.primary};
         font-weight: 900;
     }
+    @media (max-width: 475px){
+        padding: 0 10px;
+    }
 `
 const StepTitleContainer = styled.div`
     display: flex;
@@ -29,6 +32,23 @@ const StepTitle = styled.p`
     font-size: ${props => props.theme.sizes.h2};
     font-weight: lighter;
     margin-left: 20px;
+    @media (max-width: 991.98px){
+        font-size: 18px;
+    }
+    @media (max-width: 767.98px){
+        font-size: 15px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 12px;
+    }
+    @media (max-width: 475px){
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    @media (max-width: 350px){
+        margin-left: 5px;
+        font-size: 8px;
+    }
 `
 const ShowMoreButton = styled.div`
     background-color: transparent;
@@ -46,6 +66,10 @@ const MoreContainer = styled.section`
     max-height: ${(props) => (props.open ? '260px' : '0')};
     transition: all 0.5s ease-in-out;
     overflow: hidden;
+    @media (max-width: 475px){
+        height: 200px;
+        padding-left: 20px;
+    }
 `
 const PhotoContainer = styled.div`
     height: 100%;
@@ -54,10 +78,28 @@ const PhotoContainer = styled.div`
     background-image: ${props => props.photo && `url('/${props.photo}.jpg')`};
     background-position: center;
     background-size: cover;
+    @media (max-width: 475px){
+        background-position: right;
+    }
 `
 const Description = styled.p`
     font-size: 15px;
     font-weight: lighter;
+    @media (min-width: 1200px){
+        font-size: 18px;
+    }
+    @media (max-width: 767.98px){
+        font-size: 12px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 11px;
+    }
+    @media (max-width: 475px){
+        font-size: 9px;
+    }
+    @media (max-width: 475px){
+        font-size: 8px;
+    }
 `
 const DescriptionContainer = styled.div`
     width: 35%;

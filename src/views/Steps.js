@@ -18,6 +18,17 @@ const StepsContainer = styled.div`
     background-color: ${props => props.theme.colors.background};
     position: relative;
     padding-top: 112px;
+    @media (min-width: 1200px){
+        width: calc(100% - 55px);
+        padding-top: 122px;
+    }
+    @media (max-width: 991.98px){
+        width: calc(100% - 35px);
+    }
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding-top: 68px;
+    }
 `
 
 const Steps = () => {
@@ -66,12 +77,16 @@ const Steps = () => {
             photo:"etapa7"
         },
     ]
+
+    const windowSize = window.innerWidth
+
     return(
         <Container>
+            {windowSize > 767.98 &&
             <CurrentSection
             number="03"
             item="PROCESOS"
-            />
+            />}
             <StepsContainer>
                 {steps.map( step => 
                     <Step

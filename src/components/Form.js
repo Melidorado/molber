@@ -21,6 +21,18 @@ const FormContainer = styled.form`
     justify-content:${props => !props.formOpen ?`flex-end` :`center`};
     transition: all 0.3s ease-out;
     overflow: hidden;
+    @media (min-width: 1200px) {
+        width: 230px;
+        height: ${props => !props.formOpen ?`135px` :`345px`};;
+    }
+    @media (max-width: 575.98px){
+        width: 145px;
+        height: ${props => !props.formOpen ?`90px` :`245px`};
+        border-radius: 100px 0px 0px 0px;
+        padding: 20px 10px 10px;
+        right: 20px;
+        justify-content: flex-end;
+    }
 `
 
 const Title = styled.p `
@@ -30,6 +42,12 @@ const Title = styled.p `
     text-align: right;
     margin-bottom: 15px;
     transition: 1.2s ease;
+    @media (min-width: 1200px) {
+        font-size: 25px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 14px;
+    }
 `
 const Description = styled.p`
     font-size: 11px;
@@ -37,6 +55,12 @@ const Description = styled.p`
     margin-bottom: 15px;
     font-weight: 100;
     transition: 1.2s ease;
+    @media (min-width: 1200px) {
+        font-size: 15px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 8px;
+    }
 `
 const EmailInput = styled.input`
     padding: 7px 0;
@@ -44,6 +68,13 @@ const EmailInput = styled.input`
     border-bottom: 1px solid;
     margin-bottom: 15px;
     transition: 1.2s ease;
+    @media (min-width: 1200px) {
+        width: 95%;
+    }
+    @media (max-width: 575.98px){
+        width: 100%;
+        font-size: 10px;
+    }
 `
 const Message = styled.textarea`
     padding: 10px;
@@ -51,17 +82,31 @@ const Message = styled.textarea`
     border: 1px solid black;
     margin-bottom: 12px;
     transition: 1.2s ease;
+    @media (min-width: 1200px) {
+        width: 95%;
+    }
+    @media (max-width: 575.98px){
+        width: 100%;
+        border-radius: 20px 20px 0px 20px;
+        font-size: 12px;
+    }
 `
 const SendButton = styled.input`
     border: 0;
     background-color: transparent;
     font-weight: 100;
     transition: 1.2s ease;
+    @media (min-width: 1200px) {
+        font-size: 18px;
+    }
 `
 const MessageSent = styled.p`
     font-size: 14px;
     text-align: center;
     margin-left: 10px;
+    @media (min-width: 1200px) {
+        font-size: 18px;
+    }
 `
 
 const Form = ({open}) => {

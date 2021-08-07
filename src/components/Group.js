@@ -15,10 +15,31 @@ const GroupsContainer = styled.button`
     &:hover {
         background-color: ${props => props.theme.colors.primary};
     }
+    @media (min-width: 1200px){
+        height: 35px;
+    }
+    @media (max-width: 475px){
+        height: 25px;
+    }
+    @media (max-width: 475px){
+        padding-left: 35px;
+    }
 `
 const GroupTitle = styled.p`
     font-size: ${props => props.theme.sizes.h3};
     font-weight: bold;
+    @media (min-width: 1200px){
+        font-size: 20px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 14px;
+    }
+    @media (max-width: 475px){
+        font-size: 12px;
+    }
+    @media (max-width: 475px){
+        font-size: 10px;
+    }
 `
 
 const StyledLink = styled(Link)`

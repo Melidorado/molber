@@ -11,6 +11,9 @@ const NavBar = styled.nav`
     border-bottom: 1px solid black;
     background-color: red;
     display: flex;
+    @media (min-width: 1200px) {
+        height: 55px;
+    }
 `
 
 const SecondaryNav = () => {

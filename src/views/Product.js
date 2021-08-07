@@ -23,6 +23,17 @@ const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (min-width: 1200px){
+        width: calc(100% - 55px);
+        padding-top: 122px;
+    }
+    @media (max-width: 991.98px){
+        width: calc(100% - 35px);
+    }
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding-top: 68px;
+    }
 `
 const CategorieButton = styled.button`
     padding: 0 20px;
@@ -40,6 +51,15 @@ const CategorieButton = styled.button`
     &:hover {
         background-color: ${props => props.theme.colors.primary};
     }
+    @media (min-width: 1200px){
+        height: 55px;
+    }
+    @media (max-width: 767.98px){
+        margin-bottom: 0;
+    }
+    @media (max-width: 475px){
+        padding: 0 10px;
+    }
 `
 const TitleContainer = styled.div`
     display: flex;
@@ -50,11 +70,40 @@ const Title = styled.p`
     font-size: ${props => props.theme.sizes.h2};
     margin-left: 20px;
     font-weight: 100 !important;
+    @media (min-width: 1200px){
+        font-size: 25px;
+    }
+    @media (max-width: 767.98px){
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 17px;
+    }
+    @media (max-width: 475px){
+        font-size: 14px;
+    }
+    @media (max-width: 350px){
+        font-size: 10px;
+    }
 `
 const GroupTitle = styled.p`
     font-size: ${props => props.theme.sizes.h3};
     font-weight: bold;
     margin-left: 20px;
+    @media (min-width: 1200px){
+        font-size: 20px;
+    }
+    @media (max-width: 767.98px){
+        font-size: 14px;
+    }
+    @media (max-width: 475px){
+        font-size: 11px;
+    }
+    @media (max-width: 350px){
+        font-size: 10px;
+        margin-left: 10px;
+    }
 `
 
 const ImageContainer = styled.div`
@@ -64,6 +113,11 @@ const ImageContainer = styled.div`
     background-image: ${props => props.photo && `url('/${props.photo}.jpg')`};
     background-position: center;
     background-size: cover;
+    @media (max-width: 767.98px){
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
 `
 
 const Product = () => {
@@ -85,12 +139,15 @@ const Product = () => {
     let category = modifiedStrings(params.category)
     let group = modifiedStrings(params.product)
 
+    const windowSize = window.innerWidth
+
     return(
         <Container>
+            {windowSize > 767.98 &&
             <CurrentSection
             number="02"
             item="PRODUCTOS"
-            />
+            />}
             <ProductContainer>
                 <CategorieButton>
                     <TitleContainer>

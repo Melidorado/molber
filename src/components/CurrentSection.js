@@ -13,6 +13,13 @@ const CurrentSectionContainer = styled.div`
     &:hover{
         background-color: ${props => props.theme.colors.primary};
     }
+
+    @media (min-width: 1200px){
+        width: 55px;
+    }
+    @media (max-width: 991.98px) {
+        width: 35px;
+    }
 `
 const LinkContainer = styled.div`
     display: flex;
@@ -24,9 +31,21 @@ const Number = styled.p`
     font-weight: lighter;
     font-style: italic;
     margin-right: 6px;
+    @media (min-width: 1200px){
+        font-size: 15px;
+    }
+    @media (max-width: 991.98px) {
+        font-size: 10px;
+    }
 `
 const ItemName = styled.p`
     font-size: ${props => props.theme.sizes.h3};
+    @media (min-width: 1200px){
+        font-size: 20px;
+    }
+    @media (max-width: 991.98px) {
+        font-size: 14px;
+    }
 `
 
 const CurrentSection = ({number, item}) => {

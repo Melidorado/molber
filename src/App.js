@@ -36,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
+  const windowSize = window.innerWidth
+
   return (
     <div className="App">
       <GlobalStyle/>
@@ -43,7 +45,9 @@ const App = () => {
 
       <Router>
         <Nav/>
+        {windowSize > 767.98 &&
         <SecondaryNav/>
+        }
         
         <Switch>
           <Route exact path="/" component={Home}></Route>

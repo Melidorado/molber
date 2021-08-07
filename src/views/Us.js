@@ -11,12 +11,22 @@ const UsContainer = styled.section`
     display: flex;
 `
 const MisionVisionContainer = styled.div`
-    height: calc(100% - 112px);
+    height: auto;
     width: calc(100% - 45px);
     background-color: ${props => props.theme.colors.background};
-    position: absolute;
-    top: 112px;
-    left: 45px;
+    position: relative;
+    padding-top: 112px;
+    @media (min-width: 1200px){
+        width: calc(100% - 55px);
+        padding-top: 122px;
+    }
+    @media (max-width: 991.98px){
+        width: calc(100% - 35px);
+    }
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding-top: 68px;
+    }
 `
 
 
@@ -35,12 +45,15 @@ const Us = () => {
         }
     ]
 
+    const windowSize = window.innerWidth
+
     return(
         <UsContainer>
+            {windowSize > 767.98 &&
             <CurrentSection
             number="04"
             item="NOSOTROS"
-            />
+            />}
             <MisionVisionContainer>
                 {items.map( item => 
                     <MisionVision

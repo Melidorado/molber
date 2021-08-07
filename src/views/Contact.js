@@ -24,12 +24,22 @@ const Container = styled.section`
 `
 
 const ContactContainer = styled.div`
-    height: calc(100% - 112px);
+    height: auto;
     width: calc(100% - 45px);
     background-color: ${props => props.theme.colors.background};
-    position: absolute;
-    top: 112px;
-    left: 45px;
+    position: relative;
+    padding-top: 112px;
+    @media (min-width: 1200px){
+        width: calc(100% - 55px);
+        padding-top: 122px;
+    }
+    @media (max-width: 991.98px){
+        width: calc(100% - 35px);
+    }
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding-top: 68px;
+    }
 `
 const SocialMediaContainer = styled.div`
     display: flex;
@@ -45,6 +55,12 @@ const FormInfoContainer = styled.div`
     display: flex;
     width: 100%;
     padding-top: 10px;
+    @media (max-width: 767.98px){
+        flex-direction: column;
+    }
+    @media (max-width: 475px){
+        padding-top: 0;
+    }
 `
 
 const FormContainer = styled.div`
@@ -52,6 +68,16 @@ const FormContainer = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding: 40px
+    }
+    @media (max-width: 475px){
+        padding: 30px
+    }
+    @media (max-width: 350px){
+        padding: 20px 10px;
+    }
 `
 const InfoContainer = styled.div`
     width: 50%;
@@ -59,6 +85,10 @@ const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    @media (max-width: 767.98px){
+        width: 100%;
+        height: auto;
+    }
 `
 const Item = styled.article`
     display: flex;
@@ -67,16 +97,33 @@ const Item = styled.article`
     height: 90px;
     width: 438px;
     align-items: center;
+    @media (min-width: 1200px){
+        width: 90%;
+    }
+    @media (max-width: 991.98px){
+        width: 90%;
+    }
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding: 20px 30px;
+    }
 `
 const IconContainer = styled.div`
     width: 19px;
     font-size: 20px;
+
 `
 const Info = styled.a`
     font-size: 15px;
     font-weight: lighter;
     font-style: oblique;
     margin-left: 30px;
+    @media (max-width: 475px){
+        font-size: 13px;
+    }
+    @media (max-width: 350px){
+        font-size: 11px;
+    }
 `
 const Form = styled.form`
     width: 240px;
@@ -85,6 +132,15 @@ const Form = styled.form`
     flex-direction: column;
     align-items: center;
     padding-top: 35px;
+    @media (min-width: 1200px){
+        width: 60%;
+    }
+    @media (max-width: 767.98px){
+        width: 100%;
+        padding-top: 0;
+        justify-content: space-between;
+        align-items: center;
+    }
 `
 
 const Title = styled.p `
@@ -93,12 +149,31 @@ const Title = styled.p `
     font-style: italic;
     text-align: center;
     margin-bottom: 25px;
+    @media (max-width: 767.98px){
+        text-align: left;
+    }
+    @media (max-width: 475px){
+        font-size: 20px;
+    }
+    @media (max-width: 350px){
+        font-size: 18px;
+    }
 `
 const Description = styled.p`
     font-size: 15px;
     text-align: center;
     margin-bottom: 45px;
     font-weight: 100;
+    @media (max-width: 767.98px){
+        text-align: left;
+    }
+    @media (max-width: 475px){
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+    @media (max-width: 350px){
+        font-size: 11px;
+    }
 `
 const EmailInput = styled.input`
     padding: 7px 0;
@@ -106,6 +181,9 @@ const EmailInput = styled.input`
     border: 0;
     border-bottom: 1px solid;
     margin-bottom: 20px;
+    @media (max-width: 767.98px){
+        width: 100%;
+    }
 `
 const Message = styled.textarea`
     padding: 10px;
@@ -113,6 +191,10 @@ const Message = styled.textarea`
     border-radius: 50px 50px 0px 50px;
     border: 1px solid black;
     margin-bottom: 20px;
+    @media (max-width: 767.98px){
+        width: 100%;
+        border-radius: 20px 20px 0px 20px;
+    }
 `
 const SendButton = styled.input`
     border: 0;
@@ -124,19 +206,54 @@ const SendButtonContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 80px;
+    @media (max-width: 767.98px){
+        margin-bottom: 10px;
+    }
 `
 const Payments = styled.p`
     font-size: 15px;
     font-weight: lighter;
+    @media (max-width: 475px){
+        font-size: 12px;
+    }
+    @media (max-width: 350px){
+        font-size: 11px;
+    }
 `
 const MessageSent = styled.p`
     font-size: 14px;
     text-align: center;
     margin-left: 10px;
     position: absolute;
-    bottom: 170px;
+    top: 170px;
     font-weight: 100;
     color: green;
+    @media (max-width: 767.98px){
+       top: 510px;
+       margin-left: 0;
+    }
+    @media (max-width: 475px){
+        font-size: 10px;
+        top:465px;
+        text-align: left;
+    }
+    @media (max-width: 350px){
+        top: 440px
+    }
+`
+
+const LeftContainer = styled.div`
+    @media (max-width: 767.98px){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    }
+`
+const RightContainer = styled.div`
+    @media (max-width: 767.98px){
+    width: 90%;
+    }
 `
 
 const Contact = () => {
@@ -182,42 +299,50 @@ const Contact = () => {
         }, 5000)
     }, [formSent]);
 
+    const windowSize = window.innerWidth
+
     return(
         <Container>
+            {windowSize > 767.98 &&
             <CurrentSection
             number="05"
             item="CONTACTO"
-            />
+            />}
             <ContactContainer>
+            {windowSize > 767.98 &&
                 <SocialMediaContainer>
                     <SocialLink href="https://www.facebook.com/molberargentina/" target="_blank"><FacebookIcon/></SocialLink>
                     <SocialLink href="https://www.instagram.com/molber_/" target="_blank"><InstagramIcon/></SocialLink>
-                </SocialMediaContainer>
+                </SocialMediaContainer>}
                 <FormInfoContainer>
                     <FormContainer>
                         <Form id='contact-form' onSubmit={handleSubmit} formSent={formSent}>
-                            <Title>* PEDI TU PRESUPUESTO</Title>
-                            <Description>Dejanos tus datos y te enviamos tu presupuesto personalizado</Description>
-                            <EmailInput 
-                            onChange={handleChangeMail}
-                            type="email"
-                            required
-                            placeholder="E-MAIL"
-                            name="user_email"
-                            value={emailValue}/>
-                            <Message 
-                            onChange={handleChangeMessage}
-                            cols="15" 
-                            rows="2" 
-                            name="user_message"
-                            value={messageValue}
-                            required></Message>
-                            <input type='hidden' name='contact_number' value={contactNumber} />
-                            <SendButtonContainer>
-                                <SendButton type="submit" value="/ ENVIAR"/>
-                            </SendButtonContainer>
-                            {formSent && <MessageSent>Tu mensaje ha sido enviado, muchas gracias por tu consulta!</MessageSent>}
-                            <Payments>* Mercado Pago, Tarjeta de crédito</Payments>
+                            <LeftContainer>
+                                <Title>* PEDI TU PRESUPUESTO</Title>
+                                <Description>Dejanos tus datos y te enviamos tu presupuesto personalizado</Description>
+                            </LeftContainer>
+                            <RightContainer>
+                                <EmailInput 
+                                onChange={handleChangeMail}
+                                type="email"
+                                required
+                                placeholder="E-MAIL"
+                                name="user_email"
+                                value={emailValue}/>
+                                <Message 
+                                onChange={handleChangeMessage}
+                                cols="15" 
+                                rows="7" 
+                                name="user_message"
+                                value={messageValue}
+                                required></Message>
+                                <input type='hidden' name='contact_number' value={contactNumber} />
+                                <SendButtonContainer>
+                                    <SendButton type="submit" value="/ ENVIAR"/>
+                                </SendButtonContainer>
+                                {formSent && <MessageSent>Tu mensaje ha sido enviado, muchas gracias por tu consulta!</MessageSent>}
+                                <Payments>* Mercado Pago, Tarjeta de crédito</Payments>
+                            </RightContainer>
                         </Form>
                     </FormContainer>
                     <InfoContainer>
@@ -240,6 +365,11 @@ const Contact = () => {
                         </Item>
                     </InfoContainer>
                 </FormInfoContainer>
+                {windowSize <= 767.98 &&
+                <SocialMediaContainer>
+                    <SocialLink href="https://www.facebook.com/molberargentina/" target="_blank"><FacebookIcon/></SocialLink>
+                    <SocialLink href="https://www.instagram.com/molber_/" target="_blank"><InstagramIcon/></SocialLink>
+                </SocialMediaContainer>}
             </ContactContainer>
         </Container>
     )

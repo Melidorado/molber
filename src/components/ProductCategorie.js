@@ -19,6 +19,15 @@ const CategorieButton = styled.button`
     &:hover {
         background-color: ${props => props.theme.colors.primary};
     }
+    @media (min-width: 1200px){
+        height: 55px;
+    }
+    @media (max-width: 991.98px){
+        height: 70px;
+    }
+    @media (max-width: 475px){
+        height: 50px;
+    }
 `
 const TitleContainer = styled.div`
     display: flex;
@@ -28,6 +37,19 @@ const Title = styled.p`
     font-size: ${props => props.theme.sizes.h2};
     margin-left: 20px;
     font-weight: 100 !important;
+    @media (min-width: 1200px){
+        font-size: 25px;
+    }
+    @media (max-width: 575.98px){
+        font-size: 17px;
+    }
+    @media (max-width: 475px){
+        font-size: 14px;
+    }
+    @media (max-width: 475px){
+        margin-left: 10px;
+        font-size: 10px;
+    }
 `
 const GroupsContainer = styled.section`
     width: 100%;
